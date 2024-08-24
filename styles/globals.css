@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-screen {
+    @apply max-w-screen-xl mx-auto px-4 md:px-8;
+}
+
+.custom-btn-bg {
+    background: radial-gradient(67.5% 67.5% at 50% 50%, #4B5563 0%, rgba(75, 85, 99, 0) 100%)
+}
+
+.custom-btn-bg:hover {
+    background: radial-gradient(118.75% 118.75% at 50% 50%, #4B5563 0%, rgba(75, 85, 99, 0) 100%);
+}
+.input {
+    background-color: #2d3748;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    color: #e2e8f0;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+    background-color: #4a5568;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5);
+}
+@keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 50s linear infinite;
+  }
+  
