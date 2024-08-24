@@ -63,6 +63,7 @@ const StudentForm = () => {
             toast.error("Resume link is required.");
             return false;
         }
+
         return true;
     };
 
@@ -173,7 +174,7 @@ const StudentForm = () => {
     <option value="Corporate">Corporate</option>
 </select>
 
-                                <select name="department" className="input" onChange={handleChange} value={formData.department}>
+<select name="department" className="input" onChange={handleChange} value={formData.department}>
                                     <option value="">Select Department</option>
                                     <option value="DSBS">DSBS</option>
                                     <option value="Cintel">Cintel</option>
@@ -195,7 +196,7 @@ const StudentForm = () => {
                                     <option value="Other">Other</option>
                                 </select>
 
-                                <input type="url" name="resume_link" placeholder="Resume Link [Google Drive with Everyone Access]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
+                                <input type="url" name="resume_link" placeholder="Resume Link [Google Drive with Access]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
                             </div>
                             <div className="pt-8">
                                 <Button type="submit" className="w-full rounded-xl text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-700 ring-blue-600">
