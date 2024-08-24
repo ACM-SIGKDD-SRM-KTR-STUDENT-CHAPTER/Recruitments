@@ -175,6 +175,7 @@ const StudentForm = () => {
                                     <option value="DSBS">DSBS</option>
                                     <option value="Cintel">Cintel</option>
                                     <option value="C-Tech">C-Tech</option>
+                                    <option value="NWC">NWC</option>
                                     <option value="Other">Other</option>
                                 </select>
 
@@ -183,11 +184,15 @@ const StudentForm = () => {
                                     <option value="CSE Core">CSE Core</option>
                                     <option value="CSE w/s Big Data Analytics">CSE w/s Big Data Analytics</option>
                                     <option value="CSE w/s Data Science">CSE w/s Data Science</option>
-                                    <option value="CSE w/s Software">CSE w/s Software</option>
-                                    <option value="CE">Other</option>
+                                    <option value="CSE w/s Software">CSE w/s Software Engineering</option>
+                                    <option value="CSE w/s Cloud Computing">CSE w/s Cloud Computing</option>
+                                    <option value="CSE w/s Cyber Security">CSE w/s Cyber Security</option>
+                                    <option value="CSE w/s Gaming Technology">CSE w/s Gaming Technology</option>
+                                    <option value="CSE w/s BlockChain Technology">CSE w/s BlockChain Technology</option>
+                                    <option value="Other">Other</option>
                                 </select>
 
-                                <input type="url" name="resume_link" placeholder="Resume Link [Google Drive with Access]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
+                                <input type="url" name="resume_link" placeholder="Resume Link [Google Drive with Everyone Access]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
                             </div>
                             <div className="pt-8">
                                 <Button type="submit" className="w-full rounded-xl text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-700 ring-blue-600">
