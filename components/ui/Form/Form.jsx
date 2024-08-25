@@ -150,7 +150,7 @@ const StudentForm = () => {
                                 
                                 <select name="year" className="input" onChange={handleChange} value={formData.year}>
                                     <option value="">Select Year</option>
-                                    {[...Array(5)].map((_, index) => (
+                                    {[...Array(4)].map((_, index) => (
                                         <option key={index} value={index + 1}>{index + 1}</option>
                                     ))}
                                 </select>
