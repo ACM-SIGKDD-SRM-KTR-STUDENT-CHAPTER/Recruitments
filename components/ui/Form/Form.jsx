@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; 
+import "react-toastify/dist/ReactToastify.css";
 import LayoutEffect from "@/components/LayoutEffect";
 import SectionWrapper from "@/components/SectionWrapper";
 import Button from "../Button";
-import axios from "axios"; 
+import axios from "axios";
 
 const StudentForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         registration_number: "",
         section: "",
-        department: "", 
+        department: "",
         year: "",
         semester: "",
         phone_number: "",
@@ -27,7 +27,9 @@ const StudentForm = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        // Convert the value of the section field to uppercase
+        const formattedValue = name === "section" ? value.toUpperCase() : value;
+        setFormData({ ...formData, [name]: formattedValue });
     };
 
     const validateForm = () => {
@@ -77,7 +79,6 @@ const StudentForm = () => {
             return false;
         }
 
-
         return true;
     };
 
@@ -85,7 +86,7 @@ const StudentForm = () => {
         e.preventDefault();
 
         if (!validateForm()) {
-            return; 
+            return;
         }
 
         setIsSubmitting(true); // Show overlay
@@ -95,7 +96,7 @@ const StudentForm = () => {
 
             console.log("Success:", response.data);
             toast.success("Registration successful!");
-            setFormData({ 
+            setFormData({
                 name: "",
                 registration_number: "",
                 section: "",
@@ -153,8 +154,8 @@ const StudentForm = () => {
                 >
                     <div className='w-full max-w-lg p-8 bg-gray-800 rounded-xl shadow-lg relative'>
                         {isSubmitting && (
-                            <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10'>
-                                <div className='text-white text-xl'>Submitting...</div>
+                            <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 z-10 rounded-xl'>
+                                <div className='text-white text-xl font-bold'>BAKING YOUR SUBMISSION... 🤩</div>
                             </div>
                         )}
                         <div className='text-center mb-8'>
