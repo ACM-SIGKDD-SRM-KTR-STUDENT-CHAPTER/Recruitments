@@ -16,7 +16,7 @@ const CTA = ({ onStartNowClick }) => (
                 >
                     <div className="relative z-10">
                         <div className="max-w-xl mx-auto text-center">
-                            <h2 className="text-gray-50 text-3xl font-semibold sm:text-4xl">
+                            <h2 className="text-gray-50 text-4xl font-semibold sm:text-4xl">
                                 RECRUITMENTS ARE OPEN!
                             </h2>
                             <p className="mt-5 text-gray-300">

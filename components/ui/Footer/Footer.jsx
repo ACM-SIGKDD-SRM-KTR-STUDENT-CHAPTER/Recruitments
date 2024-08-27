@@ -1,7 +1,7 @@
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="mt-20">
+        <footer className="-mt-10">
             <div className="custom-screen">
                 <div className="mt-10 py-8 border-t border-gray-800 items-center justify-between sm:flex">
                     <p className="text-gray-400 text-center font-semibold">© {currentYear} SRMSIGKDD Student Chapter</p>

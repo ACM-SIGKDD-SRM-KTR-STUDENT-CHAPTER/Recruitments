@@ -23,17 +23,14 @@ const StudentForm = () => {
         branch: "",
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
     const validateForm = () => {
-        if (!formData.registration_number.startsWith("RA") || formData.registration_number.length !== 15) {
-            toast.error("Registration number must start with 'RA' and be exactly 15 characters long.");
-            return false;
-        }
-
         const srmEmailPrefix = formData.srm_email.split("@")[0];
         if (!formData.srm_email.endsWith("@srmist.edu.in") || srmEmailPrefix.length !== 6) {
             toast.error("SRM email must have 6 characters before '@srmist.edu.in'.");
@@ -59,10 +56,27 @@ const StudentForm = () => {
             toast.error("Branch is required.");
             return false;
         }
-        if (!formData.resume_link) {
-            toast.error("Resume link is required.");
+
+        if (!formData.domain) {
+            toast.error("Domain is required.");
             return false;
         }
+
+        if (!formData.gender) {
+            toast.error("Gender is required.");
+            return false;
+        }
+
+        if (!formData.year) {
+            toast.error("Year is required.");
+            return false;
+        }
+
+        if (!formData.department) {
+            toast.error("Department is required.");
+            return false;
+        }
+
 
         return true;
     };
@@ -73,6 +87,8 @@ const StudentForm = () => {
         if (!validateForm()) {
             return; 
         }
+
+        setIsSubmitting(true); // Show overlay
 
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}`, formData);
@@ -119,13 +135,15 @@ const StudentForm = () => {
             } else {
                 toast.error("Registration failed. Please try again.");
             }
+        } finally {
+            setIsSubmitting(false); // Hide overlay
         }
     };
 
     return (
         <>
             <ToastContainer />
-            <SectionWrapper id="student-form" className='flex items-center justify-center min-h-screen bg-gray-900'>
+            <SectionWrapper id="student-form" className='card flex items-center justify-center min-h-screen bg-gray-900'>
                 <LayoutEffect
                     className="duration-1000 delay-300"
                     isInviewState={{
@@ -133,7 +151,12 @@ const StudentForm = () => {
                         falseState: "opacity-0 translate-y-10"
                     }}
                 >
-                    <div className='w-full max-w-lg p-8 bg-gray-800 rounded-xl shadow-lg'>
+                    <div className='w-full max-w-lg p-8 bg-gray-800 rounded-xl shadow-lg relative'>
+                        {isSubmitting && (
+                            <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10'>
+                                <div className='text-white text-xl'>Submitting...</div>
+                            </div>
+                        )}
                         <div className='text-center mb-8'>
                             <h2 className='text-gray-50 text-3xl font-semibold'>
                                 Student Registration Form
@@ -150,13 +173,13 @@ const StudentForm = () => {
                                 
                                 <select name="year" className="input" onChange={handleChange} value={formData.year}>
                                     <option value="">Select Year</option>
-                                    {[...Array(4)].map((_, index) => (
+                                    {[...Array(3)].map((_, index) => (
                                         <option key={index} value={index + 1}>{index + 1}</option>
                                     ))}
                                 </select>
                                 <select name="semester" className="input" onChange={handleChange} value={formData.semester}>
                                     <option value="">Select Semester</option>
-                                    {[...Array(8)].map((_, index) => (
+                                    {[...Array(6)].map((_, index) => (
                                         <option key={index} value={index + 1}>{index + 1}</option>
                                     ))}
                                 </select>
@@ -167,14 +190,14 @@ const StudentForm = () => {
                                 </select>
                                 
                                 <select name="domain" className="input" onChange={handleChange} value={formData.domain}>
-    <option value="">Select Domain</option>
-    <option value="Research & Development">Research & Development</option>
-    <option value="Web/App Development">Web/App Development</option>
-    <option value="Creatives">Creatives</option>
-    <option value="Corporate">Corporate</option>
-</select>
+                                    <option value="">Select Domain</option>
+                                    <option value="Research & Development">Research & Development</option>
+                                    <option value="Web/App Development">Web/App Development</option>
+                                    <option value="Creatives">Creatives</option>
+                                    <option value="Corporate">Corporate</option>
+                                </select>
 
-<select name="department" className="input" onChange={handleChange} value={formData.department}>
+                                <select name="department" className="input" onChange={handleChange} value={formData.department}>
                                     <option value="">Select Department</option>
                                     <option value="DSBS">DSBS</option>
                                     <option value="Cintel">Cintel</option>
@@ -192,11 +215,16 @@ const StudentForm = () => {
                                     <option value="CSE w/s Cloud Computing">CSE w/s Cloud Computing</option>
                                     <option value="CSE w/s Cyber Security">CSE w/s Cyber Security</option>
                                     <option value="CSE w/s Gaming Technology">CSE w/s Gaming Technology</option>
-                                    <option value="CSE w/s BlockChain Technology">CSE w/s BlockChain Technology</option>
+                                    <option value="CSE w/s BlockChain Technology">CSE w/s Blockchain Technology</option>
+                                    <option value="CSE w/s Artificial Intelligence and Machine Learning">CSE w/s Artificial Intelligence and Machine Learning</option>
+                                    <option value="CSE w/s Business Systems">CSE w/s Business Systems</option>
+                                    <option value="CSE w/s Cloud Computing">CSE w/s Cloud Computing</option>
+                                    <option value="CSE w/s BlockChain Internet of Things">CSE w/s Internet of Things</option>
+                                    <option value="CSE w/s BlockChain Information Technology">CSE w/s Information Technology</option>
                                     <option value="Other">Other</option>
                                 </select>
 
-                                <input type="url" name="resume_link" placeholder="Resume Link [Google Drive with Access]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
+                                <input type="url" name="resume_link" placeholder="Resume Link [Only for R&D and Web/App Dev]" className="input col-span-2" onChange={handleChange} value={formData.resume_link} />
                             </div>
                             <div className="pt-8">
                                 <Button type="submit" className="w-full rounded-xl text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-700 ring-blue-600">
