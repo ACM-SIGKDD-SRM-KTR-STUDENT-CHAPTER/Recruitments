@@ -48,7 +48,7 @@ B[Open Folder] --> C[npm install] -->D[npm run dev]
  ## 💻 Current Tech Stack
 <div style="display: inline_block"><br>
   <img align="center" alt="Js" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="Nextjs" height="45" width="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/2560px-Nextjs-logo.svg.png">
+  <img align="center" alt="Nextjs" height="30" width="130" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/2560px-Nextjs-logo.svg.png">
   <img align="center" alt="NODEJS" height="50" width="45" src="https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png">
   <img align="center" alt="Tailwind" height="50" width="50" src="https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png">
   <img align="center" alt="Vercel" height="30" width="130" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vercel_logo_black.svg/2560px-Vercel_logo_black.svg.png">
