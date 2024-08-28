@@ -78,6 +78,13 @@ const StudentForm = () => {
             toast.error("Department is required.");
             return false;
         }
+        if (
+            (formData.domain === "Research & Development" || formData.domain === "Web/App Development") &&
+            !formData.resume_link
+        ) {
+            toast.error("Resume link is required for Research & Development and Web/App Development domains.");
+            return false;
+        }
 
         return true;
     };
@@ -220,8 +227,9 @@ const StudentForm = () => {
                                     <option value="CSE w/s Artificial Intelligence and Machine Learning">CSE w/s Artificial Intelligence and Machine Learning</option>
                                     <option value="CSE w/s Business Systems">CSE w/s Business Systems</option>
                                     <option value="CSE w/s Cloud Computing">CSE w/s Cloud Computing</option>
-                                    <option value="CSE w/s BlockChain Internet of Things">CSE w/s Internet of Things</option>
-                                    <option value="CSE w/s BlockChain Information Technology">CSE w/s Information Technology</option>
+                                    <option value="CSE w/s Internet of Things">CSE w/s Internet of Things</option>
+                                    <option value="CSE w/s Information Technology">CSE w/s Information Technology</option>
+                                     <option value="CSE w/s Computer Networking">CSE w/s Computer Networking</option>
                                     <option value="Other">Other</option>
                                 </select>
 
