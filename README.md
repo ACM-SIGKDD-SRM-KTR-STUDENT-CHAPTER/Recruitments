@@ -77,12 +77,6 @@ B[Open Folder] --> C[npm install] -->D[npm run dev]
 </td>
 </table>
 
- ## Current Contributors 🔻
-<div align="center">
-  <a href="https://github.com/ACM-SIGKDD-SRM-KTR-STUDENT-CHAPTER/Recruitments/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ACM-SIGKDD-SRM-KTR-STUDENT-CHAPTER/Recruitments" />
-</a>
-</div>
 
 #
 <p align="center">Made with ❤️ <b>TEAM SRMIST KTR ACM SIGKDD Student Chapter </b></p>
