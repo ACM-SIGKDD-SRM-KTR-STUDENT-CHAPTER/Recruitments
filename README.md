@@ -9,7 +9,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/ACM-SIGKDD-SRM-KTR-STUDENT-CHAPTER/Recruitments)
 
 <p align="center">
-    <img alt = "Logo" height="150" width="150" src = "./public/apple-touch-icon.png">
+    <img alt = "Logo" height="150" width="150" src = "https://github.com/ACM-SIGKDD-SRM-KTR-STUDENT-CHAPTER/Official_Website/blob/main/public/apple-touch-icon.png">
 
 </p>
 <h1 align="center" >SIGKDD Student Chapter SRM KTR </h1>
